@@ -2,18 +2,29 @@
 
 ArtCreation est un site internet présentant des dessins.
 
-## Installation
+## Environnement de développement
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+#### Pré-requis
+
+* PHP 8
+* Composer
+* Symfony CLI
+* Docker
+* Docker-compose
+
+Vous pouvez vérifier les pré-requis (sauf Docker et Docker-compose) avec la commande suivante (de la CLI Symfony) : 
+
 
 ```bash
-pip install foobar
+symfony check:requirements
 ```
 
-## Usage
+### Lancer l'environnement de développement
 
-```python
-import foobar
+```bash
+docker-compose up -d
+symfony serve -d
+```
 
 # returns 'words'
 foobar.pluralize('word')
