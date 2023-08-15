@@ -26,8 +26,11 @@ docker-compose up -d
 symfony serve -d
 ```
 
-# returns 'words'
-foobar.pluralize('word')
+## Lancer des tests
+
+```bash
+php bin/phpunit --testdox
+```
 
 # returns 'geese'
 foobar.pluralize('goose')
