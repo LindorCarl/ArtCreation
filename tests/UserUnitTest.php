@@ -5,9 +5,10 @@ namespace App\Tests;
 use App\Entity\User;
 use PHPUnit\Framework\TestCase;
 
+
 class UserUnitTest extends TestCase
 {
-    public function TestIsTrue()
+    public function testIsTrue()
     {
         $user = new User();
         $user->setEmail('true@test.com')
@@ -24,8 +25,8 @@ class UserUnitTest extends TestCase
         $this->assertTrue($user->getAPropos() === 'a propos');
         $this->assertTrue($user->getInstagram() === 'instagram');
     }
- 
-    public function TestIsFalse()
+    
+    public function testIsFalse()
     {
         $user = new User();
         $user->setEmail('true@test.com')
@@ -42,8 +43,8 @@ class UserUnitTest extends TestCase
         $this->assertFalse($user->getAPropos() === 'false');
         $this->assertFalse($user->getInstagram() === 'false');
     }
- 
-    public function TestIsEmpty()
+     
+    public function testIsEmpty()
     {
         $user = new User();
  

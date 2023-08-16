@@ -3,15 +3,15 @@
 namespace App\Tests;
 
 use App\Entity\Blogpost;
-use DateTime;
+use DatetimeImmutable;
 use PHPUnit\Framework\TestCase;
 
 class BlogpostUnitTest extends TestCase
 {
-    public function TestIsTrue()
+    public function testIsTrue()
     {
         $blogpost = new Blogpost();
-        $datetime = new DateTime();
+        $datetime = new DatetimeImmutable();
 
         $blogpost->setTitre('titre')
                 ->setCreatedAt($datetime)
@@ -23,24 +23,26 @@ class BlogpostUnitTest extends TestCase
         $this->assertTrue($blogpost->getContenu() === 'contenu');
         $this->assertTrue($blogpost->getSlug() === 'slug');
     }
- 
-    public function TestIsFalse()
+    
+    
+    public function testIsFalse()
     {
         $blogpost = new Blogpost();
-        $datetime = new DateTime();
+        $datetime = new DatetimeImmutable();
 
         $blogpost->setTitre('titre')
                 ->setCreatedAt($datetime)
                 ->setContenu('contenu')
                 ->setSlug('slug');
 
-        $this->assertFalse($blogpost->getTitre() === 'titre');
-        $this->assertFalse($blogpost->getCreatedAt() === $datetime);
-        $this->assertFalse($blogpost->getContenu() === 'contenu');
-        $this->assertFalse($blogpost->getSlug() === 'slug');
+        $this->assertFalse($blogpost->getTitre() === 'false');
+        $this->assertFalse($blogpost->getCreatedAt() === 'false');
+        $this->assertFalse($blogpost->getContenu() === 'false');
+        $this->assertFalse($blogpost->getSlug() === 'false');
     }
- 
-    public function TestIsEmpty()
+    
+    
+    public function testIsEmpty()
     {
         $blogpost = new Blogpost();
     

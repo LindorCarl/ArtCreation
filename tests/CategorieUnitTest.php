@@ -5,9 +5,11 @@ namespace App\Tests;
 use App\Entity\Categorie;
 use PHPUnit\Framework\TestCase;
 
+
 class CategorieUnitTest extends TestCase
 {
-    public function TestIsTrue()
+    
+    public function testIsTrue()
     {
         $categorie = new Categorie();
         $categorie->setNom('nom')
@@ -18,8 +20,9 @@ class CategorieUnitTest extends TestCase
         $this->assertTrue($categorie->getDescription() === 'description');
         $this->assertTrue($categorie->getSlug() === 'slug');
     }
- 
-    public function TestIsFalse()
+    
+    
+    public function testIsFalse()
     {
         $categorie = new Categorie();
         $categorie->setNom('nom')
@@ -30,8 +33,8 @@ class CategorieUnitTest extends TestCase
         $this->assertFalse($categorie->getDescription() === 'false');
         $this->assertFalse($categorie->getSlug() === 'false');
     }
- 
-    public function TestIsEmpty()
+    
+    public function testIsEmpty()
     {
         $categorie = new Categorie();
  

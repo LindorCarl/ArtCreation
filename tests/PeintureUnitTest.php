@@ -5,15 +5,15 @@ namespace App\Tests;
 use App\Entity\Categorie;
 use App\Entity\Peinture;
 use App\Entity\User;
-use DateTime;
+use DatetimeImmutable;
 use PHPUnit\Framework\TestCase;
 
 class PeintureUnitTest extends TestCase
 {
-    public function TestIsTrue()
+    public function testIsTrue()
     {
         $peinture = new Peinture();
-        $datetime = new DateTime();
+        $datetime = new DatetimeImmutable();
         $categorie = new Categorie();
         $user = new User();
 
@@ -34,22 +34,22 @@ class PeintureUnitTest extends TestCase
         $this->assertTrue($peinture->getNom() === 'nom');
         $this->assertTrue($peinture->getLargeur() == 20.20);
         $this->assertTrue($peinture->getHauteur() == 20.20);
-        $this->assertTrue($peinture->getEnVente() === true);
+        $this->assertTrue($peinture->isEnVente() === true);
         $this->assertTrue($peinture->getDateRealisation() === $datetime);
         $this->assertTrue($peinture->getCreatedAt() === $datetime);
         $this->assertTrue($peinture->getDescription() === 'description');
-        $this->assertTrue($peinture->getPortfolio() === true);
+        $this->assertTrue($peinture->isPortfolio() === true);
         $this->assertTrue($peinture->getSlug() === 'slug');
         $this->assertTrue($peinture->getFile() === 'file');
         $this->assertTrue($peinture->getPrix() == 20.20);
         $this->assertContains($categorie, $peinture->getCategorie());
         $this->assertTrue($peinture->getUser() === $user);
     }
- 
-    public function TestIsFalse()
+     
+    public function testIsFalse()
     {
         $peinture = new Peinture();
-        $datetime = new DateTime();
+        $datetime = new DatetimeImmutable();
         $categorie = new Categorie();
         $user = new User();
 
@@ -68,32 +68,32 @@ class PeintureUnitTest extends TestCase
                 ->setUser($user);
 
         $this->assertFalse($peinture->getNom() === 'false');
-        $this->assertFalse($peinture->getLargeur() == 20.20);
-        $this->assertFalse($peinture->getHauteur() == 20.20);
-        $this->assertFalse($peinture->getEnVente() === false);
-        $this->assertFalse($peinture->getDateRealisation() === $datetime);
-        $this->assertFalse($peinture->getCreatedAt() === $datetime);
+        $this->assertFalse($peinture->getLargeur() == 'false');
+        $this->assertFalse($peinture->getHauteur() == 'false');
+        $this->assertFalse($peinture->isEnVente() === false);
+        $this->assertFalse($peinture->getDateRealisation() === 'false');
+        $this->assertFalse($peinture->getCreatedAt() === 'false');
         $this->assertFalse($peinture->getDescription() === 'false');
-        $this->assertFalse($peinture->getPortfolio() === false);
+        $this->assertFalse($peinture->isPortfolio() === false);
         $this->assertFalse($peinture->getSlug() === 'false');
         $this->assertFalse($peinture->getFile() === 'false');
-        $this->assertFalse($peinture->getPrix() == 20.20);
+        $this->assertFalse($peinture->getPrix() == 'false');
         $this->assertNotContains(new Categorie(), $peinture->getCategorie());
-        $this->assertFalse($peinture->getUser() === $user);
+        $this->assertFalse($peinture->getUser() === new User());
     }
- 
-    public function TestIsEmpty()
+    
+    public function testIsEmpty()
     {
         $peinture = new Peinture();
  
         $this->assertEmpty($peinture->getNom());
         $this->assertEmpty($peinture->getLargeur());
         $this->assertEmpty($peinture->getHauteur());
-        $this->assertEmpty($peinture->getEnVente());
+        $this->assertEmpty($peinture->isEnVente());
         $this->assertEmpty($peinture->getDateRealisation());
         $this->assertEmpty($peinture->getCreatedAt());
         $this->assertEmpty($peinture->getDescription());
-        $this->assertEmpty($peinture->getPortfolio());
+        $this->assertEmpty($peinture->isPortfolio());
         $this->assertEmpty($peinture->getSlug());
         $this->assertEmpty($peinture->getFile());
         $this->assertEmpty($peinture->getPrix());

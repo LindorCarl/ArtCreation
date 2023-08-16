@@ -6,55 +6,57 @@ use App\Entity\Blogpost;
 use App\Entity\Commentaire;
 use App\Entity\Peinture;
 use DateTime;
+use DatetimeImmutable;
 use PHPUnit\Framework\TestCase;
+
 
 class CommentaireUnitTest extends TestCase
 {
-    public function TestIsTrue()
+    public function testIsTrue()
     {
         $commentaire = new Commentaire();
-        $datetime = new DateTime();
+        $datetime = new DatetimeImmutable();
         $blogpost = new Blogpost();
         $peinture = new Peinture();
 
         $commentaire->setAuteur('auteur')
-                ->setEmail('email@test.com')
+                ->setEmail('true@test.com')
                 ->setCreatedAt($datetime)
                 ->setContenu('contenu')
                 ->setBlogpost($blogpost)
                 ->setPeinture($peinture);
 
         $this->assertTrue($commentaire->getAuteur() === 'auteur');
-        $this->assertTrue($commentaire->getEmail() === 'email@test.com');
+        $this->assertTrue($commentaire->getEmail() === 'true@test.com');
         $this->assertTrue($commentaire->getCreatedAt() === $datetime);
         $this->assertTrue($commentaire->getContenu() === 'contenu');
         $this->assertTrue($commentaire->getBlogpost() === $blogpost);
         $this->assertTrue($commentaire->getPeinture() === $peinture);
     }
- 
-    public function TestIsFalse()
+     
+    public function testIsFalse()
     {
         $commentaire = new Commentaire();
-        $datetime = new DateTime();
+        $datetime = new DatetimeImmutable();
         $blogpost = new Blogpost();
         $peinture = new Peinture();
 
         $commentaire->setAuteur('auteur')
-                ->setEmail('email@test.com')
+                ->setEmail('true@test.com')
                 ->setCreatedAt($datetime)
                 ->setContenu('contenu')
                 ->setBlogpost($blogpost)
                 ->setPeinture($peinture);
 
         $this->assertFalse($commentaire->getAuteur() === 'false');
-        $this->assertFalse($commentaire->getEmail() === 'false');
-        $this->assertFalse($commentaire->getCreatedAt() === $datetime);
+        $this->assertFalse($commentaire->getEmail() === 'false@test.com');
+        $this->assertFalse($commentaire->getCreatedAt() === 'false');
         $this->assertFalse($commentaire->getContenu() === 'false');
-        $this->assertFalse($commentaire->getBlogpost() === $blogpost);
-        $this->assertFalse($commentaire->getPeinture() === $peinture);
+        $this->assertFalse($commentaire->getBlogpost() === 'false'); //$blogpost
+        $this->assertFalse($commentaire->getPeinture() === 'false'); //$peinture
     }
- 
-    public function TestIsEmpty()
+    
+    public function testIsEmpty()
     {
         $commentaire = new Commentaire();
     
