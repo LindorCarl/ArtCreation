@@ -3,33 +3,28 @@
     <p>This is a wider card </p>
 </div>
 
-<div class="card mb-3 shadow bg-white rounded mx-auto" style="max-width: 700px" data-aos="fade-right">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="/img/images.jpg" class="img-fluid rounded-start" alt="Mes réalisations" style="max-height: 299px">
-            </div>
-            <div class="col-md-8">
-            <div class="card-body mt-5">
-                <h5 class="card-title">Titre de la peinture</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+<div>
+    {% for peinture in peintures %}
+        <div class="card mb-3 shadow bg-white rounded mx-auto" style="max-width: 700px" data-aos="fade-right">  
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ peinture.file }}" class="img-fluid rounded-start" alt="Mes réalisations" style="max-height: 299px">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body mt-5">
+                        <h5 class="card-title"> {{ peinture.nom }} </h5>
+                        <p class="card-text"> {{ peinture.description|u.truncate(200, '...', false) }} </p>
+
+                        <hr class="card-meta-divider">
+                        
+                        <p class="card-text">
+                            <time dateTime="2019-05-29" > Ajoutée le {{ peinture.createdAt|date('d/m/Y') }} </time>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    {% endfor %}
 </div>
 
-<div class="card mb-5 shadow bg-white rounded mx-auto" style="max-width: 700px" data-aos="fade-right">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="/img/images.jpg" class="img-fluid rounded-start" alt="Mes réalisations" style="max-height: 290px">
-            </div>
-            <div class="col-md-8">
-            <div class="card-body mt-5">
-                <h5 class="card-title">Titre de la peinture</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-    </div>
-</div>
 
