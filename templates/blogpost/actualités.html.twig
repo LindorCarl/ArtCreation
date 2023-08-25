@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogpostController!{% endblock %}
+
+{% block body %}
+    <div class="mt-5">
+        <div class="mx-auto" style="max-width: 69%;">   
+            <h3> Dernières Actualités </h3>
+            <p>This is a wider card </p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 mx-auto mb-5" style="max-width: 70%;" data-aos="fade-up">
+            {% for blogpost in blogposts %}
+                <div class="col">
+                    <div class="card shadow bg-white rounded">
+                        <div class="card-body" style="height: 300px;">
+                            <h5 class="card-title"> {{ blogpost.titre }} </h5>
+                            <p class="card-text" style="height: 160px;"> {{ blogpost.contenu|u.truncate(150, '...', false) }} </p>
+
+                            <hr class="card-meta-divider">
+                            <p class="card-text d-flex justify-content-end">
+                                <small class="text-body-secondary ">
+                                    <time dateTime="2019-05-02" > Publiée le {{ blogpost.createdAt|date('d/m/Y') }} </time>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="d-flex justify-content-center mt-3">
+            {% do blogposts.setPageRange(2) %}
+            {{ knp_pagination_render (blogposts, 'base/pagination.html.twig')}}
+        </div>
+    </div>
+{% endblock %}

@@ -13,7 +13,7 @@
                         <p class="card-text" style="height: 160px;"> {{ blogpost.contenu|u.truncate(120, '...', false) }} </p>
 
                         <hr class="card-meta-divider">
-                        <p class="card-text ">
+                        <p class="card-text d-flex justify-content-end ">
                             <small class="text-body-secondary">
                                 <time dateTime="2019-05-02" > Publiée le {{ blogpost.createdAt|date('d/m/Y') }} </time>
                             </small>
