@@ -1,44 +1,69 @@
-<!-- Nav -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-around " >
-    <div class="container" >
-        <!-- Logo -->
-        <a class="navbar-brand mb-7" href="#">
-            <img src="/img/logo.png" alt="Logo" width="200px"/>
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary border-bottom">
+	<div class="container">
 
-        <!-- Menu -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav fs-5 me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a href="{{ path('app_realisations')}}"  class="nav-link active">Réalisations</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ path('app_actualités')}}" class="nav-link active">Actualités</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Portfolio
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-disabled="true">A propos</a>
-                </li>
-                
-            </ul>
-        </div>
+		<!-- Brand -->
+		<a class="navbar-brand" href="/">
+			<img src="/img/logo.png" class="navbar-brand-img" alt="..." width="200px">
+		</a>
 
-        <div class="nav-item lift lift-sm">
-            <a class="btn btn-primary fs-5" aria-disabled="true">Me contacter</a>
-        </div>
-    </div>
+		<!-- Toggler -->
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Collapse -->
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+
+			<!-- Toggler -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fe fe-x"></i>
+			</button>
+
+			<!-- Navigation -->
+			<ul class="navbar-nav ms-auto fs-5">
+				<li class="nav-item dropdown">
+					<a href="{{ path('app_realisations')}}" class="nav-link">Réalisations</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a href="{{ path('app_actualités')}}" class="nav-link">Actualités</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarAccount" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+						Portfolio
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarAccount">
+							<li class="dropdown-item dropend">
+								<a href="">Personnage</a>
+							</li>
+							<li class="dropdown-item dropend">
+								<a href="">Paysage urbain</a>
+							</li>
+													<li class="dropdown-item dropend">
+								<a href="">Marine</a>
+							</li>
+													<li class="dropdown-item dropend">
+								<a href="">Paysage nature</a>
+							</li>
+													<li class="dropdown-item dropend">
+								<a href="">Animaux</a>
+							</li>
+													<li class="dropdown-item dropend">
+								<a href="">Nature morte</a>
+							</li>
+						</ul>
+				</li>
+				<li class="nav-item">
+					<a href="{{ path('app_a_propos')}}" class="nav-link">A propos</a>
+				</li>
+			</ul>
+
+			<!-- Button -->
+			<a class="navbar-btn btn btn-sm btn-primary lift ms-auto fs-5" href="">
+				Me contacter
+			</a>
+
+		</div>
+
+	</div>
 </nav>
