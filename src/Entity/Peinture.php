@@ -41,7 +41,7 @@ class Peinture
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?bool $portfolio = null;
+    private $portfolio = null;
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;

@@ -58,7 +58,7 @@ class AppFixtures extends Fixture
         }
 
         // Les peintures sont classées par categorie.
-        for ($j = 0; $j < 5; ++$j) {
+        for ($k= 0; $k < 5; $k++) {
             $categorie = new Categorie();
     
                 $categorie->setNom($faker->word())
@@ -68,7 +68,7 @@ class AppFixtures extends Fixture
                 $manager->persist($categorie);
             
             // Création de 2 peintures/categorie.
-            for ($k = 0; $k < 2; $k++) {
+            for ($j= 0; $j < 2; $j++) {
                 
                 $peinture = new Peinture();
 

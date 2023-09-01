@@ -33,25 +33,13 @@
 						Portfolio
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarAccount">
+						{% for categorie in categorieNavbar() %}
 							<li class="dropdown-item dropend">
-								<a href="">Personnage</a>
+								<a href="{{ path('app_portfolio_categorie', {'slug': categorie.slug}) }}"></a>
 							</li>
-							<li class="dropdown-item dropend">
-								<a href="">Paysage urbain</a>
-							</li>
-													<li class="dropdown-item dropend">
-								<a href="">Marine</a>
-							</li>
-													<li class="dropdown-item dropend">
-								<a href="">Paysage nature</a>
-							</li>
-													<li class="dropdown-item dropend">
-								<a href="">Animaux</a>
-							</li>
-													<li class="dropdown-item dropend">
-								<a href="">Nature morte</a>
-							</li>
-						</ul>
+						{% endfor %}
+							
+					</ul>
 				</li>
 				<li class="nav-item">
 					<a href="{{ path('app_a_propos')}}" class="nav-link">A propos</a>

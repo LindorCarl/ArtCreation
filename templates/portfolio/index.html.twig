@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PortfolioController!{% endblock %}
+
+{% block body %}
+    <h1 class="mx-auto mt-5 text-primary" style="max-width: 59%"> Portfolio </h1>
+    <div class="row mt-2 row-cols-2 row-cols-md-3 g-4 rounded mx-auto" style="max-width: 60%" data-aos="fade-right">
+        {% for categorie in categories %}
+            <!-- Récupère la dernière peinture de chaque categorie -->
+            {% set img = categorie.peintures|last %}
+            <a class="text-decoration-none" href="{{ path('app_portfolio_categorie', {'slug': categorie.slug}) }}">
+                <div class="col">
+                    <div class="card" >
+                        <img class="card-img-top" src="{{ img.file }}" alt="Card image cap" style="max-height: 199px">
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ categorie.nom }} </h5>
+                            <p class="card-text"> {{ categorie.description }} </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
